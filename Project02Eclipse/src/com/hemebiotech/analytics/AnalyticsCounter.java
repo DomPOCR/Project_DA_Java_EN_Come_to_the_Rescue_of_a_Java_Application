@@ -1,14 +1,13 @@
 package com.hemebiotech.analytics;
 
 import java.io.FileWriter;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import com.hemebiotech.analytics.count.CountSymptom;
 import com.hemebiotech.analytics.read.ReadSymptomDataFromFile;
+import com.hemebiotech.analytics.sort.SortSymptomByName;
 
 public class AnalyticsCounter {
 
@@ -34,13 +33,17 @@ public class AnalyticsCounter {
 
 		Map<String, Integer> symptomsCounter = counter.count(allSymptoms);
 
-//4eme étape: On range dans l'ordre alphabétique les symtoms.
-		List<String> symptoms = new ArrayList<>(symptomsCounter.keySet());
-		Collections.sort(symptoms);
+		/**
+		 * 3eme étape: On range dans l'ordre alphabétique les symptoms (package "Sort")
+		 * 
+		 */
+		SortSymptomByName sorter = new SortSymptomByName();
+
+		List<String> sortList = sorter.Sort(symptomsCounter);
 
 //5eme étape: On écrit le fichier result.out
 		FileWriter writer = new FileWriter("result.out");
-		for (String symptom : symptoms) {
+		for (String symptom : sortList) {
 			writer.write(symptom + "=" + symptomsCounter.get(symptom) + "\n");
 		}
 		writer.close();
