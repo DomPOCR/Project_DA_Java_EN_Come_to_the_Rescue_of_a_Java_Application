@@ -34,7 +34,7 @@ public class AnalyticsCounter {
 		 *
 		 */
 
-		List<String> allSymptoms = reader.GetSymptoms();
+		List<String> allSymptoms = reader.getSymptoms();
 
 		/**
 		 * 2eme étape: On parcours le fichier en comptant les symptoms avec la map
