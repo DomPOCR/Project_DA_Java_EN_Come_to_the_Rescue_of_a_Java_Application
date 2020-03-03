@@ -10,8 +10,9 @@ import java.util.Map;
  * @author Dominique Pokrzywa
  *
  */
-public class SortSymptomByName {
+public class SortSymptomByName implements ISortSymptomByName {
 
+	@Override
 	public List<String> Sort(Map<String, Integer> allSymptoms) {
 
 		List<String> result = new ArrayList<String>(allSymptoms.keySet());

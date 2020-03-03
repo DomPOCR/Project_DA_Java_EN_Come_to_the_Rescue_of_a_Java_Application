@@ -5,8 +5,11 @@ import java.util.List;
 import java.util.Map;
 
 import com.hemebiotech.analytics.count.CountSymptom;
+import com.hemebiotech.analytics.count.ICountSymptom;
 import com.hemebiotech.analytics.read.ReadSymptomDataFromFile;
+import com.hemebiotech.analytics.sort.ISortSymptomByName;
 import com.hemebiotech.analytics.sort.SortSymptomByName;
+import com.hemebiotech.analytics.write.IWriteSymptomDataToFile;
 import com.hemebiotech.analytics.write.WriteSymptomDataToFile;
 
 public class AnalyticsCounter {
@@ -29,7 +32,7 @@ public class AnalyticsCounter {
 		 *
 		 *
 		 */
-		CountSymptom counter = new CountSymptom();
+		ICountSymptom counter = new CountSymptom();
 
 		Map<String, Integer> symptomsCounter = counter.count(allSymptoms);
 
@@ -37,7 +40,7 @@ public class AnalyticsCounter {
 		 * 3eme étape: On range dans l'ordre alphabétique les symptoms (package "Sort")
 		 * 
 		 */
-		SortSymptomByName sorter = new SortSymptomByName();
+		ISortSymptomByName sorter = new SortSymptomByName();
 
 		List<String> sortList = sorter.Sort(symptomsCounter);
 
@@ -45,7 +48,7 @@ public class AnalyticsCounter {
 		 * 4eme étape: On écrit le fichier result.out (package "Write")
 		 * 
 		 */
-		WriteSymptomDataToFile writer = new WriteSymptomDataToFile("result.out", sortList, symptomsCounter);
+		IWriteSymptomDataToFile writer = new WriteSymptomDataToFile("result.out", sortList, symptomsCounter);
 
 		writer.putSymptoms(sortList, symptomsCounter);
 	}

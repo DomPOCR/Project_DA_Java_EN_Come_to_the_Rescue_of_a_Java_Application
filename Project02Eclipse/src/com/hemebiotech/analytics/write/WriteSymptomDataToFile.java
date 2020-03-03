@@ -9,7 +9,7 @@ import java.util.Map;
  * @author Dominique Pokrzywa
  *
  */
-public class WriteSymptomDataToFile {
+public class WriteSymptomDataToFile implements IWriteSymptomDataToFile {
 
 	private String filePath;
 
@@ -24,6 +24,7 @@ public class WriteSymptomDataToFile {
 		this.filePath = filePath;
 	}
 
+	@Override
 	public void putSymptoms(List<String> symptom, Map<String, Integer> symptomsCounter) {
 
 		int nbEnr = 0;

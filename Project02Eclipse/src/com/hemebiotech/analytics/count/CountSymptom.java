@@ -9,12 +9,13 @@ import java.util.Map;
  * @author Dominique Pokrzywa
  *
  */
-public class CountSymptom {
+public class CountSymptom implements ICountSymptom {
 	/**
 	 * 
 	 * @param allSymptoms : Liste des symptomes
 	 * @return : le compteur par symptome
 	 */
+	@Override
 	public Map<String, Integer> count(List<String> allSymptoms) {
 
 		Map<String, Integer> symptomsCounter = new HashMap<String, Integer>();
