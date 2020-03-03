@@ -19,7 +19,7 @@ public class WriteSymptomDataToFile implements IWriteSymptomDataToFile {
 	 * @param List     : liste des symptomes triés
 	 * @param Counter  : : compteur des symptomes
 	 */
-	public WriteSymptomDataToFile(String filePath, List<String> List, Map<String, Integer> Counter) {
+	public WriteSymptomDataToFile(String filePath) {
 
 		this.filePath = filePath;
 	}
